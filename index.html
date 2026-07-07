@@ -1,128 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Robert Strobl — Fractional CTO</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#121210;--bg2:#1A1A17;--bg3:#222220;--accent:#D4A574;--accent2:#F59E0B;--white:#F5F0E8;--gray:#A09880;--font:'Outfit',sans-serif}
-html{scroll-behavior:smooth;font-size:16px}
-body{background:var(--bg);color:var(--white);font-family:var(--font);line-height:1.6;overflow-x:hidden;position:relative}
-body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;opacity:.03;pointer-events:none;z-index:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
-body>*{position:relative;z-index:1}
-a{color:var(--accent);text-decoration:none;transition:color .2s}
-a:hover{color:var(--white)}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(18,18,16,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,165,116,.08);transition:padding .3s}
-nav.scrolled{padding:.8rem 2rem}
-.nav-name{font-weight:700;font-size:1.1rem;letter-spacing:-.02em;color:var(--accent)}
-.nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{color:var(--gray);font-size:.875rem;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--white)}
-.nav-cta{background:var(--accent)!important;color:var(--bg)!important;padding:.5rem 1.2rem;border-radius:6px;font-weight:600;font-size:.875rem}
-.nav-cta:hover{background:var(--white)!important}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:101}
-.hamburger span{width:24px;height:2px;background:var(--white);transition:all .3s}
-.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-40%;right:-20%;width:70vw;height:70vw;background:radial-gradient(circle,rgba(212,165,116,.1) 0%,transparent 55%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-20%;left:-10%;width:50vw;height:50vw;background:radial-gradient(circle,rgba(245,158,11,.06) 0%,transparent 55%);pointer-events:none}
-.hero-inner{max-width:1000px;margin:0 auto;width:100%}
-.hero-label{display:inline-block;color:var(--accent);font-size:.9rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .2s forwards}
-.hero h1{font-size:clamp(3.2rem,8vw,6.5rem);font-weight:800;line-height:1.02;letter-spacing:-.04em;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .4s forwards}
-.hero h1 span{color:var(--accent);display:inline-block}
-.hero p{font-size:clamp(1.15rem,2vw,1.4rem);color:var(--gray);max-width:560px;margin-bottom:2.5rem;opacity:0;animation:fadeUp .8s .6s forwards}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .8s forwards}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;border-radius:8px;font-weight:600;font-size:1rem;transition:all .25s;border:none;cursor:pointer;font-family:var(--font)}
-.btn-primary{background:var(--accent);color:var(--bg)}
-.btn-primary:hover{background:var(--white);color:var(--bg);transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,165,116,.25)}
-.btn-outline{background:transparent;color:var(--white);border:1px solid rgba(212,165,116,.3)}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-section{padding:7rem 2rem}
-.container{max-width:1100px;margin:0 auto}
-.section-label{color:var(--accent);font-size:.8rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem}
-.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;line-height:1.15}
-.section-sub{color:var(--gray);font-size:1.1rem;max-width:600px;margin-bottom:3.5rem}
-.about{background:var(--bg2)}
-.about-grid{display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:start}.about-stats-row{margin-top:3rem}
-.about-text p{color:var(--gray);margin-bottom:1.25rem;font-size:1.05rem}
-.about-text p strong{color:var(--white)}
-.about-photo{width:280px;border-radius:12px;object-fit:cover;border:2px solid rgba(212,165,116,.15)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.stat{text-align:center;padding:2rem 1rem;background:linear-gradient(135deg,var(--bg3),rgba(212,165,116,.05));border-radius:12px;border:1px solid rgba(212,165,116,.1)}
-.stat-num{font-size:2.5rem;font-weight:700;color:var(--accent);line-height:1}
-.stat-label{font-size:.85rem;color:var(--gray);margin-top:.5rem}
-.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-.service-card{background:linear-gradient(145deg,var(--bg2),rgba(34,34,32,.8));border:1px solid rgba(212,165,116,.08);border-radius:16px;padding:2.5rem;transition:all .35s;position:relative;overflow:hidden}
-.service-card:hover{border-color:rgba(212,165,116,.3);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
-.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity .35s}
-.service-card:hover::before{opacity:1}
-.service-icon{width:32px;height:32px;margin-bottom:1.25rem;color:var(--accent)}
-.service-card h3{font-size:1.3rem;font-weight:700;margin-bottom:.75rem}
-.service-card p{color:var(--gray);font-size:.95rem;line-height:1.6}
-.process{background:var(--bg2)}
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.step{padding:2rem;background:linear-gradient(160deg,var(--bg),rgba(212,165,116,.03));border-radius:16px;border:1px solid rgba(212,165,116,.08);transition:all .3s}
-.step:hover{border-color:rgba(212,165,116,.25)}
-.step-num{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(212,165,116,.12);color:var(--accent);font-weight:700;font-size:.9rem;margin-bottom:1.25rem}
-.step h3{font-size:1.1rem;font-weight:700;margin-bottom:.25rem}
-.step .step-time{color:var(--accent);font-size:.8rem;font-weight:600;margin-bottom:.75rem}
-.step p{color:var(--gray);font-size:.9rem;line-height:1.6}
-.testimonials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
-.testimonial{background:linear-gradient(145deg,var(--bg2),rgba(212,165,116,.04));border:1px solid rgba(212,165,116,.08);border-radius:16px;padding:2.5rem;position:relative}
-.testimonial::before{content:'"';position:absolute;top:1rem;right:1.5rem;font-size:5rem;color:rgba(212,165,116,.12);font-family:Georgia,serif;line-height:1}
-.testimonial p{color:var(--gray);font-size:1.05rem;line-height:1.7;margin-bottom:1.5rem;font-style:italic;position:relative;z-index:1}
-.testimonial-author{display:flex;align-items:center;gap:1rem}
-.author-avatar{width:48px;height:48px;border-radius:50%;background:rgba(212,165,116,.15);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:1.1rem}
-.author-info h4{font-size:.95rem;font-weight:600}
-.author-info span{font-size:.8rem;color:var(--gray)}
-.contact{background:var(--bg2)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.contact-info h3{font-size:1.5rem;font-weight:700;margin-bottom:1rem}
-.contact-info p{color:var(--gray);font-size:1.05rem;margin-bottom:2rem;line-height:1.7}
-.contact-detail{display:flex;align-items:center;gap:.75rem;color:var(--gray);margin-bottom:1rem;font-size:.95rem}
-.contact-detail .contact-icon{color:var(--accent);display:inline-flex;align-items:center}
-form{display:flex;flex-direction:column;gap:1rem}
-input,textarea{background:var(--bg);border:1px solid rgba(212,165,116,.12);border-radius:10px;padding:1rem 1.25rem;color:var(--white);font-family:var(--font);font-size:1rem;transition:border-color .2s;outline:none;width:100%}
-input:focus,textarea:focus{border-color:var(--accent)}
-textarea{resize:vertical;min-height:140px}
-input::placeholder,textarea::placeholder{color:#555}
-.btn-submit{width:100%;justify-content:center}
-footer{padding:3rem 2rem;text-align:center;border-top:1px solid rgba(212,165,116,.08)}
-footer p{color:#555;font-size:.85rem}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.16,1,.3,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-@media(max-width:768px){
-  .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);flex-direction:column;justify-content:center;align-items:center;gap:2rem;z-index:99}
-  .nav-links.open{display:flex}
-  .nav-links a{font-size:1.2rem}
-  .hamburger{display:flex}
-  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-  .hamburger.open span:nth-child(2){opacity:0}
-  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-  .about-grid,.contact-grid,.testimonials-grid,.services-grid{grid-template-columns:1fr}
-  .about-photo{width:100%;max-width:320px;margin:0 auto;display:block;aspect-ratio:1/1;object-position:center 25%}
-  .process-steps{grid-template-columns:1fr 1fr}
-  .stats{grid-template-columns:repeat(3,1fr)}
-  section{padding:5rem 1.5rem}
+<title>Robert Strobl — CTO auf Zeit &amp; Venture Building | Berlin</title>
+<meta name="description" content="Ihr technischer Co-Founder auf Zeit: MVP-Entwicklung, CTO-as-a-Service, Tech Due Diligence und KI-Lösungen. 20+ Jahre Erfahrung, 2 Exits. Berlin, remote und vor Ort.">
+<meta name="author" content="Robert Strobl">
+<link rel="canonical" href="https://rstrobl.com/">
+<link rel="alternate" hreflang="de" href="https://rstrobl.com/">
+<link rel="alternate" hreflang="en" href="https://rstrobl.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://rstrobl.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Robert Strobl — CTO auf Zeit & Venture Building">
+<meta property="og:description" content="Ihr technischer Co-Founder auf Zeit: MVP-Entwicklung, CTO-as-a-Service, Tech Due Diligence und KI-Lösungen. 20+ Jahre Erfahrung, 2 Exits.">
+<meta property="og:url" content="https://rstrobl.com/">
+<meta property="og:site_name" content="Robert Strobl">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://rstrobl.com/robert-v2.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Robert Strobl",
+  "jobTitle": "Fractional CTO",
+  "description": "CTO auf Zeit und technischer Co-Founder für Venture Building, MVP-Entwicklung, Tech Due Diligence und KI-Lösungen.",
+  "url": "https://rstrobl.com/",
+  "image": "https://rstrobl.com/robert-v2.jpg",
+  "email": "mailto:mail@rstrobl.com",
+  "address": {"@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE"},
+  "sameAs": ["https://www.linkedin.com/in/robert-strobl/", "https://github.com/rstrobl"],
+  "worksFor": {"@type": "Organization", "name": "Nomadiq Labs GmbH"}
 }
-@media(max-width:480px){
-  .process-steps{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr}
-}
-</style>
+</script>
 </head>
 <body>
 
 <nav>
-  <div class="nav-name">Robert Strobl</div>
+  <div class="nav-name"><a href="#">Robert Strobl</a></div>
   <div class="nav-links" id="navLinks">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#contact" class="nav-cta">Let's Talk</a>
+    <a href="#about">Über mich</a>
+    <a href="#services">Leistungen</a>
+    <a href="#engage">Zusammenarbeit</a>
+    <a href="#testimonials">Referenzen</a>
+    <a href="#contact" class="nav-cta">Gespräch buchen</a>
+    <a href="en/" class="nav-lang" lang="en" hreflang="en">EN</a>
   </div>
   <div class="hamburger" id="hamburger" onclick="this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open')">
     <span></span><span></span><span></span>
@@ -131,33 +55,48 @@ footer p{color:#555;font-size:.85rem}
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-label">Fractional CTO · Berlin</div>
-    <h1>Your Technical<br>Co-Founder.<br><span>On Demand.</span></h1>
-    <p>20 years of building products, scaling teams, and shipping software — now available for your startup. Without the equity ask.</p>
+    <div class="hero-label">CTO auf Zeit · Venture Building · Berlin</div>
+    <h1>Ihr technischer<br>Co-Founder.<br><span>Auf Zeit.</span></h1>
+    <p>Sie kennen Ihre Branche wie kein anderer — und wollen daraus ein digitales Geschäft machen. Ich bringe 20&nbsp;Jahre Erfahrung aus Produktentwicklung, Teamaufbau und zwei Exits mit: als CTO auf Zeit, Entwicklungspartner oder Mitgründer.</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn btn-primary">Start a Conversation →</a>
-      <a href="#services" class="btn btn-outline">How I Help</a>
+      <a href="https://calendly.com/robertstrobl/30mins" target="_blank" rel="noopener" class="btn btn-primary">Kostenloses Erstgespräch →</a>
+      <a href="#services" class="btn btn-outline">Wie ich helfe</a>
     </div>
   </div>
 </section>
 
+<div class="logos">
+  <div class="logos-title">Vertrauen führender Marken</div>
+  <div class="logos-row">
+    <img src="brands/easypark.svg" alt="EasyPark" class="logo-tall" loading="lazy">
+    <img src="brands/heineken.svg" alt="Heineken" loading="lazy">
+    <img src="brands/salesforce.svg" alt="Salesforce" loading="lazy">
+    <img src="brands/airasia.svg" alt="AirAsia" loading="lazy">
+    <img src="brands/heroku.svg" alt="Heroku" loading="lazy">
+    <img src="brands/rhb.svg" alt="RHB" loading="lazy">
+    <img src="brands/fave.svg" alt="Fave" loading="lazy">
+    <img src="brands/snoopdogg.svg" alt="Snoop Dogg" loading="lazy">
+  </div>
+</div>
+
 <section class="about" id="about">
   <div class="container">
-    <div class="section-label">About</div>
-    <div class="section-title">I've been where you are.</div>
+    <div class="section-label">Über mich</div>
+    <div class="section-title">Ich habe die Gründungsphase selbst durchlebt. Mehrfach.</div>
     <div class="about-grid">
       <div class="about-text">
-        <p>I've spent <strong>over 20 years</strong> building digital products and technology teams. I founded and ran a <strong>30-person agency</strong>, went through <strong>2 successful exits</strong>, and worked across industries from automotive to fintech.</p>
-          <p>Today, I help experienced founders make <strong>smart technical decisions</strong> — from architecture to hiring to launch. I'm the technical co-founder you bring in when you need one, without giving up equity.</p>
-          <p>Based in <strong>Berlin</strong>. Working globally.</p>
+        <p>Seit über <strong>20 Jahren</strong> baue ich digitale Produkte und Technologie-Teams — mehr als <strong>50 Produkte</strong>, vom MVP bis zur skalierten Plattform. Acht Jahre lang habe ich in Malaysia eine <strong>Entwicklungsberatung mit 30 Mitarbeitern</strong> aufgebaut und geführt, die 2023 erfolgreich akquiriert wurde.</p>
+        <p>Als <strong>Founding Engineer bei Parkling</strong> habe ich ein Corporate Venture von der ersten Codezeile bis zum <strong>Exit an das Joint Venture von BMW und Daimler</strong> begleitet.</p>
+        <p>Heute helfe ich Unternehmern und Branchenexperten, aus ihrem Wissen digitale Geschäfte zu machen — von der Architektur über das Team bis zum Launch. <strong>Der technische Mitgründer, den Sie sich dazuholen</strong> — ohne ihn fest einstellen zu müssen.</p>
+        <p>Aus <strong>Berlin</strong>. Remote oder bei Ihnen vor Ort.</p>
       </div>
-      <img src="/rstrobl/robert-v2.jpg" alt="Robert Strobl" class="about-photo" loading="lazy">
+      <img src="robert-v2.jpg" alt="Robert Strobl" class="about-photo" loading="lazy">
     </div>
     <div class="about-stats-row">
       <div class="stats">
-        <div class="stat reveal"><div class="stat-num">20+</div><div class="stat-label">Years Building</div></div>
+        <div class="stat reveal"><div class="stat-num">20+</div><div class="stat-label">Jahre Erfahrung</div></div>
+        <div class="stat reveal"><div class="stat-num">50+</div><div class="stat-label">Produkte entwickelt</div></div>
         <div class="stat reveal"><div class="stat-num">2</div><div class="stat-label">Exits</div></div>
-        <div class="stat reveal"><div class="stat-num">30</div><div class="stat-label">Person Agency</div></div>
       </div>
     </div>
   </div>
@@ -165,91 +104,141 @@ footer p{color:#555;font-size:.85rem}
 
 <section id="services">
   <div class="container">
-    <div class="section-label">Services</div>
-    <div class="section-title">What I do.</div>
-    <div class="section-sub">Hands-on technical leadership for founders who need clarity and velocity.</div>
+    <div class="section-label">Leistungen</div>
+    <div class="section-title">Alles Technische. Aus einer Hand.</div>
+    <div class="section-sub">Hands-on-Technologieführung für Gründer und Unternehmen, die Klarheit und Tempo brauchen — vom Konzept bis zum laufenden Betrieb.</div>
     <div class="services-grid">
       <div class="service-card reveal">
-        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="8" rx="1"/><path d="M17 14v7"/><path d="M7 14v7"/><path d="M17 3v3"/><path d="M7 3v3"/><path d="M10 14 4 21"/><path d="M14 14l6 7"/></svg></div>
-        <h3>Product Architecture</h3>
-        <p>From idea to technical blueprint. I design systems that scale — choosing the right stack, defining the architecture, and mapping the build plan so nothing is left to chance.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h3>Technical Due Diligence</h3>
-        <p>Investing in or acquiring a tech company? I assess the codebase, infrastructure, team, and technical debt — giving you a clear picture of what you're buying.</p>
-      </div>
-      <div class="service-card reveal">
         <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <h3>Hands-On Building</h3>
-        <p>I don't just advise — I build. Whether it's shipping an MVP, fixing a broken deployment pipeline, or getting a stuck project moving again.</p>
+        <h3>Venture Building &amp; MVP</h3>
+        <p>Von der Idee zum marktreifen Produkt: Ich entwerfe die Architektur, wähle den passenden Tech-Stack und entwickle selbst mit. Grob skizzierte Features werden pragmatisch zu funktionierenden Lösungen — schnell, kostenbewusst und mit Vorhersagen zu Zeit und Budget, die halten.</p>
       </div>
       <div class="service-card reveal">
         <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-        <h3>Fractional CTO</h3>
-        <p>Ongoing technical leadership without the full-time commitment. I embed with your team, set direction, mentor developers, and ensure technology serves the business.</p>
+        <h3>CTO auf Zeit</h3>
+        <p>Laufende technische Führung ohne Festanstellung: Ich setze die technische Richtung, rekrutiere und führe Ihr Entwicklungsteam und sorge dafür, dass Technologie den Geschäftszielen dient — eingebettet in Ihr Unternehmen, so lange Sie mich brauchen.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>Tech Audit &amp; Due Diligence</h3>
+        <p>Sie investieren in ein Tech-Unternehmen oder übernehmen eines? Ich prüfe Codebasis, Infrastruktur, Team und technische Schulden — und liefere ein klares Bild davon, was Sie kaufen. Auch als Audit der eigenen Entwicklungsprozesse.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 2.4-1.2 4-2.5 5.4-.9 1-1.5 1.7-1.5 2.6h-6c0-.9-.6-1.6-1.5-2.6C6.2 13 5 11.4 5 9a7 7 0 0 1 7-7Z"/><path d="M9 21h6"/><path d="M10 17h4"/></svg></div>
+        <h3>KI- &amp; Datenlösungen</h3>
+        <p>Vom branchenspezifischen KI-Anwendungsfall bis zur Datenstrategie: Ich entwickle KI-Lösungen, die auf Ihr Fachwissen zugeschnitten sind — für Automatisierung, bessere Entscheidungen und neue digitale Produkte.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="process" id="process">
+<section class="engage" id="engage">
   <div class="container">
-    <div class="section-label">Process</div>
-    <div class="section-title">How we work together.</div>
-    <div class="section-sub">No long proposals. No red tape. We move fast and stay aligned.</div>
+    <div class="section-label">Zusammenarbeit</div>
+    <div class="section-title">So arbeiten wir zusammen.</div>
+    <div class="section-sub">Kein Agentur-Overhead, keine langen Angebote. Sie arbeiten direkt mit mir — im Modell, das zu Ihrem Vorhaben passt.</div>
+    <div class="engage-grid">
+      <div class="engage-card reveal">
+        <h3>Tagessatz</h3>
+        <p>Für klar umrissene Aufgaben: ein Tech Audit, eine Architekturentscheidung, ein MVP. Transparent nach Aufwand abgerechnet, mit belastbaren Schätzungen vorab.</p>
+      </div>
+      <div class="engage-card reveal">
+        <h3>Retainer</h3>
+        <p>Laufende technische Begleitung mit festem monatlichem Kontingent. Die meisten Engagements sind bewusst offen angelegt — ich bleibe an Bord, solange Sie technische Unterstützung brauchen.</p>
+      </div>
+      <div class="engage-card reveal">
+        <h3>Equity-Partnerschaft</h3>
+        <p>Beim richtigen Venture steige ich auch als Mitgründer ein: Beteiligung statt — oder ergänzend zu — Honorar. Dann sitzen wir wirklich im selben Boot.</p>
+      </div>
+    </div>
+    <div class="engage-note">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+      Remote oder vor Ort bei Ihnen — je nachdem, was das Projekt braucht.
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <div class="section-label">Ablauf</div>
+    <div class="section-title">Vom ersten Gespräch zum laufenden Produkt.</div>
+    <div class="section-sub">Wir kommen schnell ins Machen — und bleiben dabei jederzeit abgestimmt.</div>
     <div class="process-steps">
       <div class="step reveal">
         <div class="step-num">01</div>
-        <div class="step-time">Week 1</div>
-        <h3>We Talk</h3>
-        <p>You tell me where you are and where you want to go. I listen, ask hard questions, and figure out how I can help most.</p>
+        <div class="step-time">Woche 1</div>
+        <h3>Wir sprechen</h3>
+        <p>Sie erzählen mir, wo Sie stehen und wo Sie hinwollen. Ich höre zu, stelle die unbequemen Fragen und finde heraus, wo ich am meisten bewegen kann.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">02</div>
-        <div class="step-time">Week 2</div>
-        <h3>I Dig In</h3>
-        <p>I review your tech, talk to your team, and map out what needs to happen — priorities, risks, and quick wins.</p>
+        <div class="step-time">Woche 2</div>
+        <h3>Ich grabe mich ein</h3>
+        <p>Ich prüfe Ihre Technologie, spreche mit Ihrem Team und erarbeite den Plan: Prioritäten, Risiken, schnelle Erfolge — inklusive Zeit- und Budgetrahmen.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">03</div>
-        <div class="step-time">Ongoing</div>
-        <h3>We Build</h3>
-        <p>I roll up my sleeves. Whether it's architecture decisions, code reviews, hiring, or hands-on development — we execute together.</p>
+        <div class="step-time">Laufend</div>
+        <h3>Wir bauen</h3>
+        <p>Ich krempele die Ärmel hoch: Architektur, Entwicklung, Code Reviews, Recruiting — wir setzen gemeinsam um, statt nur Folien zu produzieren.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">∞</div>
-        <div class="step-time">Always</div>
-        <h3>I Stay Available</h3>
-        <p>Even between engagements, I'm a message away. Once we work together, you have a technical partner for the long run.</p>
+        <div class="step-time">Danach</div>
+        <h3>Ich bleibe erreichbar</h3>
+        <p>Auch zwischen Engagements bin ich eine Nachricht entfernt. Wer einmal mit mir gearbeitet hat, hat einen technischen Partner auf lange Sicht.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="casestudy" id="casestudy">
+  <div class="container">
+    <div class="section-label">Case Study</div>
+    <div class="section-title">Parkling: Vom Corporate Venture zum Exit an BMW &amp; Daimler.</div>
+    <div class="case-box reveal">
+      <p><strong>Die Ausgangslage:</strong> Parkling wurde als Venture von Centerbridge gegründet, dem Mehrheitseigner von APCOA — Europas größtem Parkraumbewirtschafter. Das Ziel: On-Street-Parkdaten erheben und Parksituationen in Städten vorhersagen.</p>
+      <p><strong>Meine Rolle als Founding Engineer:</strong></p>
+      <ul>
+        <li><strong>Algorithmen-Entwicklung</strong> für Parkdaten in Echtzeit</li>
+        <li><strong>MVP-Backend</strong> — Entwurf und Aufbau der gesamten Backend-Infrastruktur</li>
+        <li><strong>Teamaufbau</strong> — Recruiting der Schlüsselrollen: CTO, Engineers, Data Scientists und Mobile-Entwickler</li>
+      </ul>
+      <p><strong>Das Ergebnis:</strong> Parkling wurde von PARK NOW übernommen, dem Joint Venture von BMW Group und Daimler Mobility — das 2021 wiederum von EasyPark akquiriert wurde. Aus dem Venture wurde ein führender Anbieter für On-Street-Parkdaten.</p>
     </div>
   </div>
 </section>
 
 <section id="testimonials">
   <div class="container">
-    <div class="section-label">Testimonials</div>
-    <div class="section-title">What people say.</div>
-    <div class="section-sub">From founders and executives I've worked with.</div>
+    <div class="section-label">Referenzen</div>
+    <div class="section-title">Was Gründer über die Zusammenarbeit sagen.</div>
     <div class="testimonials-grid">
       <div class="testimonial reveal">
-        <p>Robert is one of the most versatile tech minds I've worked with. He bridges strategy and execution like few others — equally comfortable in a boardroom and a codebase. His experience shows in how quickly he identifies what matters.</p>
+        <p>Bei gleich zwei Unternehmen, die ich aufgebaut habe, war Robert in der Frühphase die technische Säule. Robert denkt nicht nur technisch, sondern auch strategisch und begreift die Gründer-Vision ähnlich wie ein Co-Founder. Die Kombination aus seiner Geschwindigkeit plus Pragmatik ist gerade in einer Gründungsphase eine große Hilfe.</p>
+        <ul>
+          <li>Er entwirft schnell und kostengünstig gute Architekturempfehlungen für komplexere IT-Projekte</li>
+          <li>Er setzt in agiler Zusammenarbeit nur grob skizzierte Features selbständig und pragmatisch in funktionierende Lösungen um</li>
+          <li>Er hat große Freude und Innovationskraft bei der schnellen Entwicklung von MVPs, kann aber auch bestehende Systeme kontinuierlich weiterentwickeln</li>
+          <li>Durch seine Personalführungserfahrung im IT-Bereich kann er IT-Teams rekrutieren und anleiten — mit der notwendigen informellen Autorität</li>
+          <li>Er liefert schnell Vorhersagen zu Zeit und Budget, die im Nachhinein auch zutreffen</li>
+        </ul>
+        <p>Ich kann Robert als Dienstleister für die Softwareentwicklung und als CTO vollumfänglich empfehlen.</p>
         <div class="testimonial-author">
-          <div class="author-avatar">D</div>
+          <div class="author-avatar">DH</div>
           <div class="author-info">
-            <h4>Detlev</h4>
-            <span>Ex-McKinsey · Parkling / BMW / Daimler</span>
+            <h4>Detlev Hülsebusch</h4>
+            <span>CEO, Parkling · Ex-McKinsey</span>
           </div>
         </div>
       </div>
       <div class="testimonial reveal">
-        <p>Working with Robert was transformative for our company. His technical leadership and strategic thinking were instrumental in getting Suria Labs to a successful acquisition. He doesn't just advise — he gets in the trenches with you.</p>
+        <p>Die Zusammenarbeit mit Robert war für unser Unternehmen transformativ. Seine technische Führung und sein strategisches Denken waren maßgeblich daran beteiligt, Suria Labs zu einer erfolgreichen Übernahme zu führen. Er berät nicht nur — er steigt mit in den Graben.</p>
         <div class="testimonial-author">
           <div class="author-avatar">B</div>
           <div class="author-info">
             <h4>Bjarte</h4>
-            <span>Suria Labs · Successful Acquisition</span>
+            <span>Suria Labs · Erfolgreiche Akquisition</span>
           </div>
         </div>
       </div>
@@ -261,24 +250,37 @@ footer p{color:#555;font-size:.85rem}
   <div class="container">
     <div class="contact-grid">
       <div class="contact-info">
-        <div class="section-label">Contact</div>
-        <div class="section-title">Let's talk.</div>
-        <p>Have a technical challenge? Thinking about your next move? I'm always happy to chat — no strings attached.</p>
-        <div class="contact-detail"><span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span> mail@rstrobl.com</div>
-        <div class="contact-detail"><span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span> Berlin, Germany</div>
+        <div class="section-label">Kontakt</div>
+        <div class="section-title">Lassen Sie uns sprechen.</div>
+        <p>Sie tragen eine Venture-Idee mit sich herum, brauchen technische Führung oder eine ehrliche zweite Meinung? Schreiben Sie mir — oder buchen Sie direkt ein kostenloses Erstgespräch. Unverbindlich.</p>
+        <div class="contact-detail"><span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span> <a href="mailto:mail@rstrobl.com">mail@rstrobl.com</a></div>
+        <div class="contact-detail"><span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span> Berlin — remote &amp; vor Ort</div>
+        <div class="contact-detail"><span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></span> <a href="https://www.linkedin.com/in/robert-strobl/" target="_blank" rel="noopener">linkedin.com/in/robert-strobl</a></div>
+        <div class="contact-detail"><span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></span> <a href="https://github.com/rstrobl" target="_blank" rel="noopener">github.com/rstrobl</a></div>
+        <div class="contact-calendly">
+          <a href="https://calendly.com/robertstrobl/30mins" target="_blank" rel="noopener" class="btn btn-primary">Kostenloses Erstgespräch buchen →</a>
+        </div>
       </div>
       <form action="https://formspree.io/f/mldeplgr" method="POST">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" placeholder="Tell me about your project..." required></textarea>
-        <button type="submit" class="btn btn-primary btn-submit">Send Message →</button>
+        <input type="text" name="name" placeholder="Ihr Name" required>
+        <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+        <textarea name="message" placeholder="Erzählen Sie mir von Ihrem Vorhaben..." required></textarea>
+        <button type="submit" class="btn btn-primary btn-submit">Nachricht senden →</button>
+        <p class="form-privacy">Ihre Angaben werden zur Bearbeitung Ihrer Anfrage verarbeitet. Details in der <a href="datenschutz/">Datenschutzerklärung</a>.</p>
       </form>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Robert Strobl. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="impressum/">Impressum</a>
+    <a href="datenschutz/">Datenschutz</a>
+    <a href="https://www.linkedin.com/in/robert-strobl/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/rstrobl" target="_blank" rel="noopener">GitHub</a>
+    <a href="en/" hreflang="en">English</a>
+  </div>
+  <p>© 2026 Robert Strobl · Nomadiq Labs GmbH, Berlin</p>
 </footer>
 
 <script>
