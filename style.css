@@ -42,9 +42,10 @@ section{padding:7rem 2rem}
 .logos{padding:3.5rem 2rem;border-top:1px solid rgba(212,165,116,.08);border-bottom:1px solid rgba(212,165,116,.08)}
 .logos-title{text-align:center;color:var(--gray);font-size:.8rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:2rem}
 .logos-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2.5rem 3.5rem;max-width:1100px;margin:0 auto}
-.logos-row img{height:30px;width:auto;filter:grayscale(1) brightness(1.7);opacity:.75;transition:opacity .25s}
+.logos-row img{height:36px;width:auto;filter:grayscale(1) brightness(1.7);opacity:.75;transition:opacity .25s}
 .logos-row img:hover{opacity:1}
-.logos-row img.logo-tall{height:52px}
+.logos-row img.logo-tall{height:56px}
+.logos-row img.logo-big{height:48px}
 .about{background:var(--bg2)}
 .about-grid{display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:start}
 .about-stats-row{margin-top:3rem}
@@ -88,6 +89,7 @@ section{padding:7rem 2rem}
 .testimonial li::before{content:'✓';position:absolute;left:.2rem;color:var(--accent);font-style:normal}
 .testimonial-author{display:flex;align-items:center;gap:1rem}
 .author-avatar{width:48px;height:48px;border-radius:50%;background:rgba(212,165,116,.15);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:1.1rem;flex-shrink:0}
+img.author-avatar{object-fit:cover}
 .author-info h4{font-size:.95rem;font-weight:600}
 .author-info span{font-size:.8rem;color:var(--gray)}
 .contact{background:var(--bg2)}

@@ -1,5 +1,4 @@
-<svg width="164" height="164" viewBox="0 0 164 164" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="10" y="87" width="67" height="67" rx="20" fill="#17292E"/>
-<rect x="86" y="87" width="67" height="67" rx="20" fill="#DA7649"/>
-<rect x="86" y="10" width="67" height="67" rx="20" fill="#17292E"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 164">
+<rect width="164" height="164" rx="36" fill="#D4A574"/>
+<text x="82" y="121" text-anchor="middle" font-family="'Outfit','Avenir Next','Segoe UI',Helvetica,Arial,sans-serif" font-weight="800" font-size="112" fill="#121210">R</text>
 </svg>
